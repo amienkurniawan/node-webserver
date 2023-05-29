@@ -1,0 +1,5 @@
+project bookshelf api
+1. menggunakan port 9000
+2. applikasi dijalankan dengan perintah npm run start ('node src/server/js') jika ingin menggunakan nodemon untuk proses development ('nodemon src/server.js')
+3. api dapat menyimpan buku
+
