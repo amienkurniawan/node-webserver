@@ -4,8 +4,8 @@ const books = require("./books");
 const addBookHandler = (request, h) => {
   const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
   const id = nanoid(16);
-  const createdAt = new Date().toISOString();
-  const updatedAt = createdAt;
+  const insertedAt = new Date().toISOString();
+  const updatedAt = insertedAt;
 
   const finished = pageCount === readPage ? true : false;
 
@@ -30,7 +30,7 @@ const addBookHandler = (request, h) => {
   }
 
   const newBook = {
-    id, name, year, author, summary, publisher, pageCount, readPage, finished, reading, createdAt, updatedAt
+    id, name, year, author, summary, publisher, pageCount, readPage, finished, reading, insertedAt, updatedAt
   };
 
   books.push(newBook);
@@ -40,7 +40,7 @@ const addBookHandler = (request, h) => {
   if (isSuccess) {
     const response = h.response({
       status: 'success',
-      message: 'Catatan berhasil ditambahkan',
+      message: 'Buku berhasil ditambahkan',
       data: {
         bookId: id
       }
@@ -51,7 +51,7 @@ const addBookHandler = (request, h) => {
 
   const response = h.response({
     status: 'Failed',
-    message: 'Catatan gagal ditambahkan',
+    message: 'Buku gagal ditambahkan',
   });
   response.code(500);
   return response;
